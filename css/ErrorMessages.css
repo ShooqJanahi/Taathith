@@ -1,0 +1,231 @@
+/* Splash Screen Styles */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dbcadc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Fade-out animation */
+  }
+  
+  /* Splash Content */
+  .splash-content {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align all content */
+  }
+  
+  .splash-logo {
+    width: 180px; /* Adjusted logo size */
+    animation: logoBounce 2s infinite; /* Bounce effect for the logo */
+    margin-bottom: 20px; /* Space between logo and title */
+  }
+  
+  .splash-content h1 {
+    font-size: 3rem; /* Bigger font size for the title */
+    color: #4c2673; /* Deep purple */
+    margin: 10px 0; /* Spacing between title and description */
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  .splash-content p {
+    font-size: 1.5rem; /* Slightly larger font for description */
+    color: #4c2673;
+    margin: 0;
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  /* Loader Animation */
+  .loader {
+    margin-top: 30px; /* Space between text and loader */
+    width: 50px; /* Bigger loader */
+    height: 50px; /* Bigger loader */
+    border: 4px solid #4c2673; /* Purple loader */
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes logoBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes textPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Hidden class to fade out the splash screen */
+  #splash-screen.hidden {
+    opacity: 0; /* Fade to transparent */
+    pointer-events: none; /* Disable interactions */
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+
+/*by using this approch we ensure a clean and centered layout for the content*/
+body {
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    font-family: 'Inter', sans-serif; /* Sets the font for the entire page */
+    background-color: #f3f0ff; /* Light purple/gray background for a soft aesthetic */
+    display: flex; /* Centers content using Flexbox */
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; /* Vertically centers the content */
+    height: 100vh; /* Makes the body height equal to the viewport height */
+}
+
+
+/* Styles the main container to create a polished card layout. Also Makes the container responsive by using percentages and a maximum width */
+.card, .error-container {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 12px; /* Rounded corners for a smooth look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Centers the text inside the card */
+    padding: 70px; /* Adds padding for inner spacing */
+    width: 90%; /* Ensures the card takes up 90% of the width */
+    max-width: 800px; /* Sets a maximum width for larger screens */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+/*Ensures images are appropriately sized and maintain their aspect ratio. Also Adds spacing to separate the image from subsequent content*/
+.card img, .error-container img {
+    width: 100px; /* Sets a consistent width for the images */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 20px; /* Adds spacing below the image */
+}
+
+/*Provides clear and visually appealing typography for headings and text. Also Ensures proper spacing for readability and hierarchy*/
+.card h2, .error-container h1 {
+    font-size: 24px; /* Sets a consistent font size for headings */
+    font-weight: 700; /* Makes the text bold */
+    color: #333333; /* Dark gray for readability */
+    margin-bottom: 10px; /* Adds spacing below the heading */
+}
+.card p, .error-container p {
+    font-size: 16px; /* Sets a standard font size for paragraphs */
+    color: #666666; /* Lighter gray for contrast with the heading */
+    margin-bottom: 30px; /* Adds spacing below paragraphs */
+}
+
+
+.button-group {
+    display: flex; /* Aligns buttons horizontally */
+    justify-content: center; /* Centers the button group */
+    gap: 10px; /* Adds spacing between buttons */
+    margin-bottom: 20px; /* Adds spacing below the button group */
+}
+
+.button-group a {
+    text-decoration: none; /* Removes underline from links */
+    font-size: 14px; /* Sets a standard font size for buttons */
+    font-weight: 600; /* Makes the text slightly bold */
+    padding: 10px 50px; /* Adds padding for larger clickable areas */
+    border-radius: 30px; /* Rounds the button edges */
+    transition: background-color 0.3s; /* Smooth background color change on hover */
+    display: inline-block; /* Ensures buttons are inline-block elements */
+}
+
+.retry-button, .button-group a {
+    background-color: #6a0dad; /* Purple background for primary buttons */
+    color: #ffffff; /* White text for contrast */
+}
+
+.retry-button:hover, .button-group a:hover {
+    background-color: #6B4DE6; /* Darker purple on hover for feedback */
+}
+
+.homepage-button {
+    background-color: #f0f0f0; /* Light gray for secondary buttons */
+    color: #333333; /* Dark text for readability */
+}
+
+.homepage-button:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .card, .error-container {
+        padding: 20px; /* Reduces padding for smaller screens */
+    }
+
+    .card img, .error-container img {
+        width: 80px; /* Reduces image size */
+    }
+
+    .card h2, .error-container h1 {
+        font-size: 20px; /* Reduces heading font size */
+    }
+
+    .card p, .error-container p, .card .note {
+        font-size: 14px; /* Adjusts text size for readability */
+    }
+
+    .button-group a {
+        padding: 8px 16px; /* Reduces button padding for smaller screens */
+        font-size: 12px; /* Reduces font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .card, .error-container {
+        width: 80%; /* Uses 80% of the width for very small screens */
+    }
+
+    .button-group {
+        flex-direction: column; /* Stacks buttons vertically */
+        gap: 5px; /* Reduces spacing between buttons */
+    }
+}
+
+
+
+

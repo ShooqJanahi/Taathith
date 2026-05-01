@@ -1,0 +1,438 @@
+/* Splash Screen Styles */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dbcadc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Fade-out animation */
+  }
+  
+  /* Splash Content */
+  .splash-content {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align all content */
+  }
+  
+  .splash-logo {
+    width: 180px; /* Adjusted logo size */
+    animation: logoBounce 2s infinite; /* Bounce effect for the logo */
+    margin-bottom: 20px; /* Space between logo and title */
+  }
+  
+  .splash-content h1 {
+    font-size: 3rem; /* Bigger font size for the title */
+    color: #4c2673; /* Deep purple */
+    margin: 10px 0; /* Spacing between title and description */
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  .splash-content p {
+    font-size: 1.5rem; /* Slightly larger font for description */
+    color: #4c2673;
+    margin: 0;
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  /* Loader Animation */
+  .loader {
+    margin-top: 30px; /* Space between text and loader */
+    width: 50px; /* Bigger loader */
+    height: 50px; /* Bigger loader */
+    border: 4px solid #4c2673; /* Purple loader */
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes logoBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes textPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Hidden class to fade out the splash screen */
+  #splash-screen.hidden {
+    opacity: 0; /* Fade to transparent */
+    pointer-events: none; /* Disable interactions */
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+  
+
+body {
+    font-family: 'Inter', sans-serif;/* Use 'Inter' font family for a modern look */
+    background-color: #f3f0ff;
+    margin: 0;/* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; /* Include padding and borders in width and height */
+}
+
+.container {
+    margin-top: 85px; /* Add margin to compensate for fixed header height plus space */
+    padding: 20px;  /* Add padding around the container */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+    gap: 20px;  /* Add space between child elements */
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.header {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Ensure space between title and button */
+    align-items: center; /* Vertically center-align items */
+    padding: 10px 20px; /* Adjust padding for compactness */
+    background-color: #fff; /* Set a white background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    position: fixed; /* Fix header to the top */
+    top: 0; /* Position at the top of the viewport */
+    left: 0; /* Position at the left of the viewport */
+    width: 100%; /* Stretch header to the full width */
+    z-index: 1000; /* Ensure the header is above other elements */
+    height: 60px; /* Set a fixed height */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.header h1 {
+    font-size: 20px; /* Adjust font size */
+    color: #5a5a5a; /* Use a medium gray color */
+    display: flex; /* Use flexbox for title layout */
+    align-items: center; /* Align title content vertically */
+    gap: 10px; /* Add space between the image and the title */
+}
+/* Adjust the size of the logo */
+.header h1 img {
+    width: 24px; /* Set logo width */
+    height: 24px; /* Set logo height */
+}
+
+.header .icons {
+    display: flex;/* Use flexbox for icons layout */
+    align-items: center; /* Vertically align icons */
+    gap: 15px; /* Add spacing between icons */
+}
+
+.header .logout {
+    background-color: #6a0dad;
+    color: #fff;
+    padding: 8px 15px; /* Reduce padding for a smaller button */
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px; /* Adjust font size */
+    font-weight: 600;
+    white-space: nowrap; /* Prevent text wrapping */
+    max-width: 100px; /* Restrict button width */
+    overflow: hidden; /* Prevent overflow text */
+    text-align: center; /* Center-align the text */
+}
+
+.header .logout:hover {
+    background-color: #6B4DE6;
+}
+#chart_div {
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    max-width: 100%; /* Prevent chart from exceeding the container width */
+    overflow-x: auto; /* Allow horizontal scrolling inside the chart container if needed */
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+/* Profile card styles */
+.profile-card {
+    background-color: #f9f9ff;
+    border-radius: 10px; /* Round the card corners */
+    padding: 20px; /* Add padding inside the card */
+    width: 25%;
+    max-width: 300px; /* Limit the width on larger screens */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1; /* Allow resizing */
+}
+
+.profile-card img {
+    border-radius: 50%; /* Make the profile picture circular */
+    margin-bottom: 15px; /* Add space below the image */
+    width: 100px;  /* Set image width */
+    height: 100px;  /* Set image height */
+}
+
+.profile-card h2 {
+    font-size: 20px; /* Set font size for the name */
+    margin-bottom: 10px;  /* Add space below the name */
+}
+
+.profile-card p {
+    font-size: 14px; /* Set font size for text */
+    color: #7a7a7a;
+    margin: 5px 0; /* Add vertical spacing between text lines */
+}
+
+.right-panel {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column;
+    gap: 20px; /* Add space between items */
+    width: 75%; /* Set panel width as a percentage */
+    max-width: 900px; /* Limit width on larger screens */
+    flex: 2; /* Allow resizing */
+    overflow-x: hidden; /* Prevent horizontal overflow in right panel */
+}
+
+.admin-actions,
+.admin-notes,
+.user-activity {
+    background-color: #f9f9ff;
+    border-radius: 10px; /* Round the corners */
+    padding: 20px; /* Add padding inside sections */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+/* General section headings */
+.admin-actions h3,
+.admin-notes h3,
+.user-activity h3 {
+    font-size: 18px; /* Set font size for headings */
+    margin-bottom: 15px;  /* Add space below headings */
+}
+
+.admin-actions .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.admin-actions .buttons button {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.admin-actions .buttons button:hover {
+    background-color: #6B4DE6;
+}
+.admin-actions .slider {
+    width: 100%;
+}
+
+.admin-notes textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #6c63ff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    color: #7a7a7a;
+}
+/* Activity items styling */
+.user-activity .activity-item {
+    background-color: #fff; /* White background for activity items */
+    border-radius: 5px;  /* Round the corners */
+    padding: 10px; /* Add padding inside */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    margin-bottom: 10px; /* Add spacing between items */
+}
+
+.user-activity .activity-item p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px;  /* Set font size for text */
+    color: #7a7a7a;
+}
+
+.user-activity .activity-item span {
+    display: block; /* Make span a block element */
+    font-size: 12px;
+    color: #b0b0b0;
+    margin-top: 5px; /* Add space above the timestamp */
+}
+
+/*Loaded admin notes*/
+.admin-notes {
+    margin: 20px 0;
+}
+
+.note-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.admin-username {
+    font-weight: bold;
+}
+
+.note-footer {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.add-note-section {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.add-note-section input {
+    flex: 1;
+    padding: 5px;
+}
+
+.add-note-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-note-button:hover {
+    background-color: #0056b3;
+}
+
+.slide-prev, .slide-next {
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: #050607;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.slide-prev:hover, .slide-next:hover {
+    background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    /* On smaller tablets and laptops */
+    .profile-card, .right-panel {
+        max-width: 100%; /* Allow full width */
+    }
+}
+
+@media (max-width: 768px) {
+    /* On tablets */
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: stretch; /* Stretch to full width */
+    }
+
+    .header h1 img {
+        width: 20px; /* Reduce logo size */
+        height: 20px;
+    }
+
+    .header .logout {
+        padding: 5px 10px; /* Smaller button */
+        font-size: 12px; /* Smaller text */
+    }
+    profile-card img {
+        width: 80px; /* Smaller profile picture */
+        height: 80px;
+    }
+
+    .profile-card h2 {
+        font-size: 18px; /* Smaller font size */
+    }
+}
+
+@media (max-width: 480px) {
+    /* On mobile phones */
+    .header h1 {
+        font-size: 16px; /* Smaller title */
+    }
+
+    .profile-card img {
+        width: 80px; /* Smaller profile picture */
+        height: 80px;
+    }
+
+    .profile-card h2 {
+        font-size: 18px; /* Smaller font size */
+    }
+
+    .admin-actions button,
+    .add-note-button {
+        padding: 5px 8px; /* Smaller buttons */
+        font-size: 12px; /* Smaller font size */
+    }
+}
+

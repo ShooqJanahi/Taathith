@@ -1,0 +1,155 @@
+<!--Report.html-->
+
+<div id="splash-screen">
+    <div class="splash-content">
+        <img src="../assets/PhotoNest_Transparent.png" alt="PhotoNest Logo" class="splash-logo">
+        <h1>PhotoNest</h1>
+        <p>Where memories find their nest</p>
+        <div class="loader"></div>
+    </div>
+</div>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+
+
+    <script type="module" src="../js/firebaseConfig.js"></script> <!-- Firebase configuration -->
+    <script type="module" src="../js/login.js"></script> <!-- Login logic -->
+    <script type="module" src="../js/Report.js"></script>
+
+    <link rel="stylesheet" href="../css/Report.css"> <!-- Link to external CSS file -->
+    <link rel="icon" href="../assets/PhotoNest_Transparent.png" type="image/png">
+</head>
+
+<body>
+    <!-- Header section of the page -->
+    <div class="header">
+        <!-- Logo container -->
+        <div class="logo">
+            <img src="../assets/PhotoNest_Transparent.png" alt="PhotoNest Logo"> PhotoNest
+        </div>
+        <!-- Action buttons in the header -->
+        <div class="actions">
+
+            <button id="hamburgerMenu" class="hamburger-menu"><i class="fas fa-bars"></i></button>
+
+
+            <form id="logoutForm" onsubmit="event.preventDefault(); logout();">
+                <button id="logout-button" type="button">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Mobile navigation menu -->
+    <div class="mobile-menu">
+        <a href="AdminDashboard.html">Dashboard</a>
+        <a href="UserManagement.html">User Management</a>
+        <a href="Report.html">Reports</a>
+        <a href="AdminDashboard.html#user-status-section">Currently Logged-in Users</a>
+        <a href="AdminDashboard.html#Spam-Report">Spam Reports</a>
+        <a href="Settings.html">Settings</a>
+        <button id="logoutButton" type="button">Logout</button>
+    </div>
+
+
+    <!-- Main container of the page -->
+    <div class="container">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <a href="AdminDashboard.html">Dashboard</a>
+            <a href="UserManagement.html">User Management</a>
+            <a href="Report.html">Reports</a>
+            <h2>Quick Access</h2>
+            <a href="AdminDashboard.html#user-status-section">Currently Logged-in Users</a>
+            <a href="AdminDashboard.html#Spam-Report">Spam Reports</a>
+        </div>
+
+        <!-- Section to display reports -->
+        <div class="reports">
+            <h2>Reports</h2>
+
+            <!-- Search bar for filtering reports -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search Reports"> <!-- Input field for search terms -->
+                <div class="dropdown-container" style="position: relative;">
+                    <button id="sortFilterButton" class="dropdown-box">Sort/Filter ▼</button>
+                    <div id="sortFilterDropdown" class="dropdown-content active">
+                        <div class="dropdown-section">
+                          <strong>Sort Options</strong>
+                          <button class="dropdown-item" data-value="timestamp-desc">Sort by Date (Newest)</button>
+                          <button class="dropdown-item" data-value="timestamp-asc">Sort by Date (Oldest)</button>
+                          <button class="dropdown-item" data-value="status">Sort by Status</button>
+                        </div>
+                        <div class="dropdown-section">
+                          <strong>Filter Options</strong>
+                          <button class="dropdown-item" data-value="filter-Pending Review">Filter by Pending Review</button>
+                          <button class="dropdown-item" data-value="filter-Closed">Filter by Closed</button>
+                        </div>
+                      </div>
+                      
+                      
+                  </div>
+                  
+                <button id="searchButton">Enter</button> <!-- Search button -->
+            </div>
+            <!-- Card to display report data -->
+            <div class="report-card">
+                <table>
+                    <thead>
+                        <!-- Table headers -->
+                        <tr>
+                            <th>Reporter UserName</th>
+                            <th>Reported UserName</th>
+                            <th>Report Date and Time</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Reviewed By</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Example row (dynamic data should replace this) -->
+                        <tr>
+                            <td>Alice Johnson</td>
+                            <td><a href="mailto:alice.johnson@example.com">alice.johnson@example.com</a></td>
+                            <td>2024-11-11 14:00</td>
+                            <td>like</td>
+                            <td>Active</td>
+                            <td></td>
+                            <td>
+                                <!-- Action links for viewing or closing a report -->
+                                <a href="#" class="view-button">View</a>
+                                <a href="#">Close</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Popup overlay for detailed report view -->
+    <div id="popupOverlay" class="popup-overlay hidden">
+        <div class="popup-content">
+            <button id="popupCloseButton" class="popup-close-button">&times;</button>
+            <!-- Close button for the popup -->
+            <div id="popupDetails" class="popup-details"> <!-- Container for dynamically loaded popup details -->
+                <!-- Details will be dynamically added here -->
+            </div>
+            <!-- Action button to close the popup -->
+            <button id="popupCloseAction" class="popup-action-button">Close</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

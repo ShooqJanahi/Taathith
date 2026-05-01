@@ -1,0 +1,158 @@
+<div id="splash-screen">
+    <div class="splash-content">
+        <img src="../assets/PhotoNest_Transparent.png" alt="PhotoNest Logo" class="splash-logo">
+        <h1>PhotoNest</h1>
+        <p>Where memories find their nest</p>
+        <div class="loader"></div>
+    </div>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="../css/Profile.css"> <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="../css/Notification.css">
+
+
+    <script type="module" src="../js/firebaseConfig.js"></script>
+    <script type="module" src="../js/login.js"></script>
+    <script type="module" src="../js/Notification.js"></script> <!-- notificatioion popup-->
+    
+    <script type="module" src="../js/Profile.js"></script>
+
+    <link rel="icon" href="../assets/PhotoNest_Transparent.png" type="image/png">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-section">
+            <img src="../assets/PhotoNest_Transparent.png" alt="Logo">
+            <h1>PhotoNest</h1>
+        </div>
+        <div class="icons">
+            <i class="fas fa-bell"></i>
+            <a href="../html/Settings.html">
+                <i class="fas fa-cog"></i>
+            </a>
+            
+            <button class="login-btn">Logout</button>
+        </div>
+    </header>
+    <section class="profile-section">
+        <img src="../assets/Default_profile_icon.jpg" alt="Profile picture">
+        <h2>PhotoNest</h2>
+        <p>@PhotoNest</p>
+        <p>A passionate photographer capturing the beauty of everyday life. Love nature, travel, and candid moments.</p>
+        <a href="">PhotoNest@example.com</a>
+        <div class="stats">
+            <div>Posts<br>200</div>
+            <div>Followers<br>750</div>
+            <div>Following<br>180</div>
+        </div>
+        
+        <div class="edit-profile-container">
+            <a href="Settings.html?open=editProfile" class="edit-btn">Edit Profile</a>
+
+             <!-- Follow button dropdown -->
+  
+       
+             <div class="button-group">
+                <button class="follow-menu-toggle">Follow</button>
+                <div class="options-menu-container">
+                    <button class="options-menu-toggle">Options <i class="fas fa-chevron-down"></i></button>
+                    <div class="options-menu hidden"> <!-- Add the "hidden" class by default -->
+                        <button class="report-user">Report User</button>
+                        <button class="block-user">Block User</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+
+
+
+
+    </section>
+    <section class="gallery">
+        <div class="gallery-item">
+            <img src="https://placehold.co/200x200" alt="Image of a cityscape at night">
+            <div class="info">
+                <span>100 likes</span>
+                <span>39 comments</span>
+            </div>
+        </div>
+        <!-- Repeat other gallery items as needed -->
+    </section>
+
+
+<!-- User-Specific Popup -->
+<div id="user-popup-container" class="hidden">
+    <div class="user-popup-content">
+        <div class="user-popup-header">
+            <h3 id="user-popup-title">Report User</h3>
+            <button id="user-popup-close-btn">&times;</button>
+        </div>
+        <div class="user-popup-body">
+            <form id="report-user-form">
+                <label for="report-reason" class="popup-label">Reason for reporting:</label>
+                <textarea
+                    id="report-reason"
+                    rows="4"
+                    placeholder="Enter the reason for reporting..."
+                    required
+                ></textarea>
+            </form>
+        </div>
+        <div class="user-popup-footer">
+            <button id="user-popup-action-btn" class="btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+    
+    
+
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div>
+            <h4>Quick Links</h4>
+            <a href="UserDashboard.html#Home">Home</a> <!-- Link to privacy policy -->
+            <a href="UserDashboard.html#Home">Explore</a>
+            <a href="VaultPasscode.html">Vault</a>
+            <a href="">Messages</a>
+
+        </div>
+        <div>
+            <h4>Follow Us</h4>
+            <div class="social-icons"> <!-- Social media icons -->
+                <a href="https://www.facebook.com/profile.php?id=61566861417599"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="https://www.instagram.com/photonest.bh/"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 PhotoNest <!-- Copyright notice -->
+            </div>
+        </div>
+
+        <div>
+            <h4>Legal</h4>
+            <a href="#privacy-policy">Privacy Policy</a> <!-- Link to privacy policy -->
+            <a href="#TermsAndCondition">Terms and Conditions</a> <!-- Link to terms and conditions -->
+        </div>
+
+
+    </div>
+</body>
+</html>

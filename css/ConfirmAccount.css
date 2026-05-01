@@ -1,0 +1,340 @@
+/* Splash Screen Styles */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dbcadc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Fade-out animation */
+  }
+  
+  /* Splash Content */
+  .splash-content {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align all content */
+  }
+  
+  .splash-logo {
+    width: 180px; /* Adjusted logo size */
+    animation: logoBounce 2s infinite; /* Bounce effect for the logo */
+    margin-bottom: 20px; /* Space between logo and title */
+  }
+  
+  .splash-content h1 {
+    font-size: 3rem; /* Bigger font size for the title */
+    color: #4c2673; /* Deep purple */
+    margin: 10px 0; /* Spacing between title and description */
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  .splash-content p {
+    font-size: 1.5rem; /* Slightly larger font for description */
+    color: #4c2673;
+    margin: 0;
+    animation: textPop 1.5s ease-in-out;
+  }
+  
+  /* Loader Animation */
+  .loader {
+    margin-top: 30px; /* Space between text and loader */
+    width: 50px; /* Bigger loader */
+    height: 50px; /* Bigger loader */
+    border: 4px solid #4c2673; /* Purple loader */
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes logoBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes textPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Hidden class to fade out the splash screen */
+  #splash-screen.hidden {
+    opacity: 0; /* Fade to transparent */
+    pointer-events: none; /* Disable interactions */
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+  
+
+body {
+    font-family: 'Inter', sans-serif; /* Sets a modern font for readability */
+    background-color: #f2f0f7; /* Light background for a clean look */
+    margin: 0; /* Removes default margin */
+    display: flex; /* Flexbox for vertical alignment of elements */
+    flex-direction: column; /* Stacks header, content, and footer vertically */
+    align-items: center; /* Centers content horizontally */
+    min-height: 100vh; /* Ensures the body takes up the full viewport height */
+    justify-content: space-between; /* Spaces out header, content, and footer */
+}
+
+/* Navbar styling */
+.navbar {
+    width: 100vw; /* Spans the full viewport width */
+    background-color: white; /* Neutral background for contrast */
+    padding: 10px 20px; /* Adds inner spacing */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+    display: flex; /* Flexbox for aligning elements */
+    align-items: center; /* Vertically aligns logo */
+    justify-content: center; /* Centers content horizontally */
+    position: fixed; /* Keeps navbar fixed at the top */
+    top: 0; /* Positions at the very top */
+    left: 0; /* Ensures alignment with the left edge */
+    z-index: 1; /* Ensures the navbar stays above other elements */
+    box-sizing: border-box; /* Includes padding in width calculations */
+}
+
+/* Logo styling */
+.navbar .logo {
+    font-size: 24px; /* Sets the logo text size */
+    font-weight: 700; /* Makes the text bold */
+    color: #000000; /* Neutral black for text color */
+    display: flex; /* Aligns the logo text and image horizontally */
+    align-items: center; /* Vertically centers the logo components */
+}
+
+.navbar .logo i {
+    margin-right: 8px; /* Adds space between the icon and the text */
+}
+
+/* Login container styling */
+.login-container {
+    background-color: white; /* White background for contrast */
+    padding: 40px 60px; /* Adds inner spacing */
+    border-radius: 10px; /* Rounded corners for a polished look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+    text-align: center; /* Centers text within the container */
+    width: 300px; /* Fixed width for the login form */
+    margin-top: 100px; /* Adds space below the navbar */
+    margin-bottom: 50px; /* Separates the form from the footer */
+    flex-grow: 1; /* Allows the content to expand dynamically */
+}
+
+.login-container h2 {
+    margin-bottom: 20px; /* Adds spacing below the title */
+    font-weight: 600; /* Slightly bold font for emphasis */
+    color: #333; /* Neutral gray for readability */
+}
+
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px; /* Adds space between input fields */
+    text-align: left; /* Aligns labels to the left */
+}
+
+.form-group label {
+    font-weight: 500; /* Semi-bold for readability */
+    display: block; /* Ensures labels appear on a new line */
+    margin-bottom: 5px; /* Adds spacing below labels */
+}
+
+.form-group input {
+    width: 100%; /* Input spans the container's width */
+    padding: 10px; /* Inner padding for larger click targets */
+    border: 1px solid #ddd; /* Light gray border for neutrality */
+    border-radius: 25px; /* Rounded input fields */
+    font-size: 14px; /* Standard font size for inputs */
+}
+
+.form-group input:focus {
+    outline: none; /* Removes default focus outline */
+    border-color: #6c4cff; /* Purple border on focus for branding */
+}
+
+.form-group .input-icon {
+    position: relative; /* Positions the icon relative to the input */
+}
+
+.form-group .input-icon i {
+    position: absolute; /* Allows precise placement within the input */
+    left: 10px; /* Positions icon inside the input */
+    top: 50%; /* Centers the icon vertically */
+    transform: translateY(-50%); /* Corrects vertical alignment */
+    color: #6a0dad; /* Matches the branding color */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    padding-left: 30px; /* Adds space for the icon */
+}
+
+.btn {
+    background-color: #6a0dad; /* Branding color for buttons */
+    color: white; /* White text for contrast */
+    border: none; /* Removes default border */
+    padding: 10px 20px; /* Adds padding for a larger clickable area */
+    border-radius: 25px; /* Rounded button for consistency */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 16px; /* Standard font size for buttons */
+    width: 100%; /* Button spans the container width */
+}
+
+.btn:hover {
+    background-color: #6B4DE6; /* Darker shade on hover */
+}
+
+
+/* Footer styling */
+.footer {
+    width: 100%; /* Footer spans the full width */
+    display: flex; /* Aligns elements horizontally */
+    justify-content: space-around; /* Spreads elements evenly */
+    align-items: center; /* Vertically centers the content */
+    padding: 20px; /* Adds inner spacing */
+    background-color: #fff; /* Matches navbar background */
+    color: #666; /* Neutral gray for secondary text */
+    font-size: 14px; /* Smaller text size */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Shadow above for separation */
+    flex-wrap: wrap; /* Wraps items on smaller screens */
+    box-sizing: border-box; /* Includes padding in width calculations */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+
+.footer div {
+    text-align: center; /* Centers text inside each footer section */
+}
+
+.footer .social-icons {
+    display: flex; /* Aligns social icons horizontally */
+    justify-content: center; /* Centers the icons */
+    gap: 10px; /* Adds spacing between icons */
+    margin-top: 5px; /* Adds spacing above the icons */
+}
+
+.footer a {
+    color: #6a0dad; /* Purple color for branding */
+    text-decoration: none; /* Removes underlines from links */
+    display: block; /* Ensures consistent block layout */
+    margin-bottom: 5px; /* Adds spacing between links */
+}
+
+.footer i {
+    margin: 0 5px; /* Adds spacing around icons */
+    font-size: 20px; /* Sets a standard size for icons */
+    color: #6a0dad; /* Matches the branding color */
+}
+
+.footer a:hover, .footer i:hover {
+    color: #6B4DE6;
+}
+
+/* Responsive styling for tablets */
+@media (max-width: 768px) {
+    .login-container {
+        width: 85%; /* Adjusts width for smaller screens */
+        padding: 25px 15px; /* Reduces padding */
+        margin-top: 80px;
+    }
+
+    .navbar .logo {
+        font-size: 20px; /* Reduces logo text size */
+    }
+
+    .form-group input {
+        width: 90%;
+    }
+
+    .btn {
+        font-size: 14px; /* Reduces button font size */
+    }
+
+    .footer {
+        padding: 15px; /* Adjusts padding for compact layout */
+    }
+
+    .footer .links a,
+    .footer .social i {
+        font-size: 13px;
+    }
+
+    .footer .copyright {
+        font-size: 12px;
+    }
+}
+
+/* Responsive styling for mobile screens */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%; /* Adjusts width for small screens */
+        padding: 20px 10px; /* Further reduces padding */
+        margin-top: 60px;
+    }
+
+    .navbar .logo {
+        font-size: 18px; /* Smaller logo size */
+    }
+
+    .form-group input {
+        width: 87%;
+    }
+
+    .footer {
+        padding: 10px; /* Compact padding */
+        text-align: center; /* Centers footer content */
+    }
+
+    .footer .links a,
+    .footer .social i {
+        font-size: 12px;
+    }
+
+    .footer .copyright {
+        font-size: 12px;
+    }
+}
