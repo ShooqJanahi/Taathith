@@ -1,225 +1,200 @@
-/* Splash Screen Styles */
+* {
+    box-sizing: border-box;
+}
+
 #splash-screen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #dbcadc;
+    inset: 0;
+    background: #D7B89C;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    transition: opacity 1s ease-in-out; /* Fade-out animation */
-  }
-  
-  /* Splash Content */
-  .splash-content {
+    transition: opacity 0.6s ease;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-content {
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align all content */
-  }
-  
-  .splash-logo {
-    width: 180px; /* Adjusted logo size */
-    animation: logoBounce 2s infinite; /* Bounce effect for the logo */
-    margin-bottom: 20px; /* Space between logo and title */
-  }
-  
-  .splash-content h1 {
-    font-size: 3rem; /* Bigger font size for the title */
-    color: #4c2673; /* Deep purple */
-    margin: 10px 0; /* Spacing between title and description */
-    animation: textPop 1.5s ease-in-out;
-  }
-  
-  .splash-content p {
-    font-size: 1.5rem; /* Slightly larger font for description */
-    color: #4c2673;
+}
+
+.splash-logo {
+    width: 180px;
+    margin-bottom: 20px;
+    animation: logoBounce 1.8s infinite;
+}
+
+.splash-content h1 {
+    font-size: 42px;
+    color: #4A2516;
+    margin: 10px 0;
+}
+
+.splash-content p {
+    font-size: 20px;
+    color: #4A2516;
     margin: 0;
-    animation: textPop 1.5s ease-in-out;
-  }
-  
-  /* Loader Animation */
-  .loader {
-    margin-top: 30px; /* Space between text and loader */
-    width: 50px; /* Bigger loader */
-    height: 50px; /* Bigger loader */
-    border: 4px solid #4c2673; /* Purple loader */
+}
+
+.loader {
+    margin: 30px auto 0;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #4A2516;
     border-top: 4px solid transparent;
     border-radius: 50%;
     animation: spin 1.2s linear infinite;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes logoBounce {
+}
+
+@keyframes logoBounce {
     0%, 100% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
+
     50% {
-      transform: translateY(-20px);
+        transform: translateY(-14px);
     }
-  }
-  
-  @keyframes textPop {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  /* Hidden class to fade out the splash screen */
-  #splash-screen.hidden {
-    opacity: 0; /* Fade to transparent */
-    pointer-events: none; /* Disable interactions */
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
+}
+
+@keyframes spin {
     to {
-      opacity: 0;
-      visibility: hidden;
+        transform: rotate(360deg);
     }
-  }
-  
-  
+}
 
-/* General Styling for the Body */
-/*providing a clean slate for further customizations*/
 body {
-    font-family: Arial, sans-serif; /* Sets a clean and modern font style */
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    overflow-x: hidden; /* Prevents horizontal scrolling for better UX */
-    overflow-y: auto; /* Allows vertical scrolling when necessary */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #F7EFE7;
+    color: #4A2516;
+    overflow-x: hidden;
 }
 
-/* Fullscreen Container */
-/*this part defines the main layout, making it adaptable for sidebar and main content alignment*/
 .container {
-    display: flex; /* Creates a flexible box container for layout management */
-    width: 100vw; /* Ensures the container spans the full width of the viewport */
-    height: 100vh; /* Ensures the container spans the full height of the viewport */
-    background: white; /* Sets the background color */
-    overflow: hidden; /* Prevents content from overflowing */
+    display: flex;
+    min-height: 100vh;
+    background: #F7EFE7;
 }
 
-/* Sidebar Styling */
-/*create a visually distinct sidebar with centered content for branding and feature highlights*/ 
 .sidebar {
-    width: 30%; /* Takes up 30% of the container width */
-    background: #4A3E74; /* Sets a dark purple background color */
-    color: white; /* Ensures text is readable against the dark background */
-    padding: 20px; /* Adds spacing inside the sidebar */
-    display: flex; /* Creates a flexible container */
-    flex-direction: column; /* Aligns content vertically */
-    justify-content: center; /* Centers content vertically */
-    align-items: center; /* Centers content horizontally */
-    text-align: center;/* Centers text inside the sidebar */
+    width: 35%;
+    background: #8B5E3C;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
-/*ensures that the logo is responsive and fits well within the sidebar*/
+
 .sidebar .logo img {
-    max-width: 100%; /* Ensures the image doesn't exceed the sidebar width */
-    height: auto; /* Maintains the image aspect ratio */
-    margin-bottom: 20px; /* Add space below the image */
+    max-width: 230px;
+    margin: 0 auto 25px;
+    border-radius: 12px;
 }
 
 .sidebar h2 {
-    margin-top: 0;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 .sidebar ul {
     list-style: none;
     padding: 0;
+    text-align: left;
+    max-width: 370px;
+    margin: 0 auto;
 }
 
 .sidebar li {
-    margin: 10px 0;
+    margin: 16px 0;
+    font-size: 17px;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .sidebar li i {
-    margin-right: 10px;
-    color: white;
+    color: #F7EFE7;
+    font-size: 20px;
 }
-/*provides a clean area for the signup form*/
+
 .main-content {
-    width: 70%; /* Occupies the remaining 70% of the container width */
-    padding: 40px; /* Adds space around the content */
-    background: #fff; /* Sets a white background */
-    display: flex; /* Uses flex layout for child elements */
-    flex-direction: column; /* Stacks child elements vertically */
-    justify-content: center; /* Centers content vertically */
-    position: relative; /* Allows precise positioning of child elements */
+    width: 65%;
+    padding: 50px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
-/*create layout the header with login link for the users with existing accounts*/
+
 .top-bar {
-    position: absolute; /* Allows placement relative to the parent element */
-    top: 20px; /* Places the bar 20px from the top */
-    right: 20px; /* Aligns the bar to the right */
-    display: flex; /* Uses flex for layout */
-    gap: 10px; /* Adds space between elements */
-    align-items: center; /* Aligns items vertically */
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .top-bar span {
-    color: black;
+    color: #4A2516;
 }
 
-.login-link {
-    color: #241E38;
-    text-decoration: none;
+.login-link,
+.input-group a {
+    color: #8B5E3C;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.login-link:hover {
-    color: #6B4DE6;
+.login-link:hover,
+.input-group a:hover {
+    color: #4A2516;
 }
-/*aligns the form fields neatly with consistent spacing for better user experience*/
+
 .signup-form {
-    display: flex; /* Uses flex layout */
-    flex-direction: column; /* Stacks input fields vertically */
-    gap: 10px; /* Adds space between input fields */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .signup-form h2 {
-    margin-top: 0;
-    color: black;
-    margin-top: 6%;
+    color: #4A2516;
+    font-size: 34px;
+    margin: 0 auto 15px;
+    width: 60%;
 }
-/*Standardizes input field layout and alignment*/
+
 .input-group {
-    position: relative; /* Enables positioning for child elements */
-    width: 60%; /* Restricts input field width */
-    margin: 1px auto; /* Centers the input field horizontally */
+    width: 60%;
+    margin: 0 auto;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #4A2516;
+    margin: 5px 0;
+    display: block;
+}
+
+.input-group input {
+    padding: 12px 15px;
+    border: 1px solid #D7B89C;
+    border-radius: 25px;
+    width: 100%;
+    margin: 5px 0;
+    color: #4A2516;
+}
+
+.input-group input:focus {
+    outline: 2px solid #8B5E3C;
 }
 
 .password-container {
@@ -227,134 +202,68 @@ body {
     align-items: center;
 }
 
-input[type="password"] {
+.password-container input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 .toggle-password {
     cursor: pointer;
-    margin-left: -30px; /* Adjust based on your design */
-    color: #aaa;
+    margin-left: -35px;
+    color: #8B5E3C;
+}
+
+.input-group.terms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 60%;
+}
+
+.input-group.terms input {
+    width: auto;
 }
 
 .input-group.terms label {
-    width: auto; /* Adjust width for terms label */
-    margin: 0; /* Remove margin for terms label */
-    white-space: nowrap; /* Prevent the label from breaking into multiple lines */
-}
-/*Ensures proper alignment of the terms checkbox and label for better readability*/
-.input-group.terms {
-    display: flex; /* Arranges checkbox and label horizontally */
-    align-items: center; /* Aligns items vertically */
-    justify-content: flex-start; /* Aligns items to the left */
-    width: 25%; /* Matches other input field widths */
-    margin: 5px auto; /* Centers the group horizontally */
+    margin: 0;
+    font-size: 14px;
 }
 
-.input-group.terms input[type="checkbox"] {
-    margin-right: 5px; /* Reduce space between checkbox and label */
-    align-items: center;
-}
-.input-group label {
-    font-weight: bold;
-    color: black;
-    margin: 5px 0;
-    display: block;
-    text-align: left;
-}
-
-.input-group input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    width: 100%;
-    margin: 5px 0;
-    display: block;
-}
-/*Creates a visually appealing, responsive button for submitting the form*/
 .signup-btn {
-    background: #4A3E74; /* Sets a dark purple background */
-    color: white; /* Sets text color to white for contrast */
-    border: none; /* Removes default border */
-    padding: 15px 50px; /* Adds padding for a large, clickable button */
-    cursor: pointer; /* Changes cursor to pointer on hover */
-    border-radius: 25px; /* Creates a rounded button */
-    font-weight: bold;/* Makes the text bold */
-    margin: 20px auto 0; /* Centers the button and adds top margin */
-    display: block; /* Ensures the button is treated as a block-level element */
-    width: fit-content; /* Sizes the button to fit its content */
+    background: #8B5E3C;
+    color: white;
+    border: none;
+    padding: 14px 50px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 20px auto 0;
+    display: block;
 }
 
 .signup-btn:hover {
-    background: #6B4DE6;
+    background: #4A2516;
 }
 
-.recaptcha {
-    font-size: 12px;
-    text-align: center;
-    color: #555;
-}
-
-/* Media Queries for Responsiveness */
-/*Ensures the layout and button are mobile-friendly by adapting styles for smaller screens*/
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stacks sidebar and content vertically */
-        height: auto; /* Allows container to expand based on content */
-        padding: 10px; /* Adds spacing around the container */
+        flex-direction: column;
     }
 
-    .sidebar {
-        width: 100%;
-        padding: 10px;
-        align-items: center; /* Center align the content */
-    }
-
-    .sidebar .logo img {
-        max-width: 200px; /* Adjust logo size for smaller screens */
-        margin-bottom: 20px; /* Space below the logo */
-    }
-
+    .sidebar,
     .main-content {
         width: 100%;
-        padding: 20px; /* Add padding to main content for gap around edges */
+        padding: 25px;
     }
 
-    .signup-btn {
-        width: 100%; /* Makes the button full-width */
-        padding: 15px; /* Adds consistent padding */
-    }
-}
-
-@media (max-width: 480px) {
-    .sidebar h2 {
-        font-size: 18px;
+    .top-bar {
+        position: static;
+        justify-content: center;
+        margin-bottom: 20px;
     }
 
-    .sidebar ul {
-        font-size: 14px;
-    }
-
-    .main-content {
-        padding: 15px; /* Reduce padding slightly for very small screens */
-    }
-
-    .signup-form h2 {
-        font-size: 24px;
-    }
-
-    .input-group label {
-        font-size: 14px;
-    }
-
-    .input-group input {
-        padding: 8px;
-    }
-
-    .signup-btn {
-        padding: 10px;
+    .signup-form h2,
+    .input-group,
+    .input-group.terms {
+        width: 90%;
     }
 }

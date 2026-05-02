@@ -1,58 +1,57 @@
-/* Splash Screen Styles */
 #splash-screen {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    background: #dbcadc;
+    background: #D7B89C;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     opacity: 1;
-    transition: opacity 1s ease-in-out; /* Fade-out animation */
-  }
-  
-  /* Splash Content */
-  .splash-content {
+    transition: opacity 0.6s ease;
+}
+
+.splash-content {
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center align all content */
-  }
-  
-  .splash-logo {
-    width: 180px; /* Adjusted logo size */
-    animation: logoBounce 2s infinite; /* Bounce effect for the logo */
-    margin-bottom: 20px; /* Space between logo and title */
-  }
-  
-  .splash-content h1 {
-    font-size: 3rem; /* Bigger font size for the title */
-    color: #4c2673; /* Deep purple */
-    margin: 10px 0; /* Spacing between title and description */
-    animation: textPop 1.5s ease-in-out;
-  }
-  
-  .splash-content p {
-    font-size: 1.5rem; /* Slightly larger font for description */
-    color: #4c2673;
+    align-items: center;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.splash-logo {
+    width: 180px;
+    margin-bottom: 20px;
+    animation: logoBounce 1.8s infinite;
+}
+
+.splash-content h1 {
+    font-size: 3rem;
+    color: #4A2516;
+    margin: 10px 0;
+}
+
+.splash-content p {
+    font-size: 1.5rem;
+    color: #4A2516;
     margin: 0;
-    animation: textPop 1.5s ease-in-out;
-  }
-  
-  /* Loader Animation */
-  .loader {
-    margin-top: 30px; /* Space between text and loader */
-    width: 50px; /* Bigger loader */
-    height: 50px; /* Bigger loader */
-    border: 4px solid #4c2673; /* Purple loader */
+}
+
+.loader {
+    margin-top: 30px;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #4A2516;
     border-top: 4px solid transparent;
     border-radius: 50%;
     animation: spin 1.2s linear infinite;
-  }
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
   
   /* Animations */
   @keyframes fadeIn {
@@ -93,11 +92,7 @@
     }
   }
   
-  /* Hidden class to fade out the splash screen */
-  #splash-screen.hidden {
-    opacity: 0; /* Fade to transparent */
-    pointer-events: none; /* Disable interactions */
-  }
+
   
   @keyframes fadeOut {
     from {
@@ -135,8 +130,8 @@ body {
 /*=============================== LEFT SECTION ===================================*/
 /* Ensures the left section is visually distinct, with centered content and responsive design*/
 .left-section {
-    background-color: #4A3E74; /* Purple background for branding */
-    color: white; /* Contrasts well with the background */
+    background: var(--color-gray-100); /* beige */
+    color: var(--color-primary-variant);
     display: flex; /* Enables flexbox for alignment */
     flex-direction: column; /* Stacks content vertically */
     justify-content: center; /* Centers content vertically */

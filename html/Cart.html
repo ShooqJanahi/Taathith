@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+
+    <link rel="stylesheet" href="../css/Cart.css">
+    <link rel="icon" href="../assets/Taathith.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="../assets/Taathith.png" alt="Taathith Logo">
+        <span>Taathith</span>
+    </div>
+
+    <div class="header-search">
+        <input type="text" id="cart-search" placeholder="Search cart items...">
+    </div>
+
+    <nav>
+        <a href="UserDashboard.html"><i class="fa-solid fa-arrow-left"></i> Back to Shopping</a>
+        <a href="PhotoGallery.html"><i class="fa-solid fa-heart"></i> Favourites</a>
+    </nav>
+</header>
+
+<main class="page">
+    <section class="page-title">
+        <h1>Your Cart</h1>
+        <p>Review your selected furniture before payment.</p>
+    </section>
+
+    <section id="cart-container" class="cart-grid"></section>
+
+    <section class="cart-summary">
+        <h2>Total: <span id="cart-total">BD 0</span></h2>
+        <button id="payment-btn">Proceed to Payment</button>
+    </section>
+</main>
+
+<script src="../js/Cart.js"></script>
+</body>
+</html>

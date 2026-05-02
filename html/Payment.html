@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="../css/Cart.css">
+    <link rel="icon" href="../assets/Taathith.png" type="image/png">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="../assets/Taathith.png" alt="Taathith Logo">
+        <span>Taathith</span>
+    </div>
+
+    <nav>
+        <a href="Cart.html">Back to Cart</a>
+        <a href="UserDashboard.html">Back to Shopping</a>
+    </nav>
+</header>
+
+<main class="page">
+    <section class="page-title">
+        <h1>Payment</h1>
+        <p>Complete your furniture order.</p>
+    </section>
+
+    <section class="cart-summary" style="display:block;">
+        <h2>Order Summary</h2>
+        <p>Total Amount: <strong id="payment-total">BD 0</strong></p>
+
+        <form id="payment-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Card Number" maxlength="16" required>
+            <input type="text" placeholder="Expiry Date MM/YY" required>
+            <input type="text" placeholder="CVV" maxlength="3" required>
+            <button type="submit">Pay Now</button>
+        </form>
+    </section>
+</main>
+
+<script src="../js/Payment.js"></script>
+</body>
+</html>
